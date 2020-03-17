@@ -2,6 +2,7 @@ var generation;
 var population;
 var simSpeed;
 var rectSize;
+var currGen;
 
 function setup()
 {
@@ -10,6 +11,7 @@ function setup()
     population = 0;
     simSpeed = 10;
     rectSize = 10;
+    currGen = new initArray();
 }
 
 function draw()
@@ -19,6 +21,7 @@ function draw()
     fill('white');
 
     drawGUI();
+    drawCells();
 
     if ((frameCount % simSpeed) === 0) {
         // Do stuff
@@ -28,6 +31,25 @@ function draw()
 
 function keyPressed()
 {
+}
+
+function initArray() {
+    var arr = new Array(height / rectSize);
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = new Uint8Array(width / rectSize);
+    }
+    return arr;
+}
+
+function drawCells() {
+    for (var i = 0; i < currGen.length; i++) {
+        console.log(currGen[i].length);
+        for (var j = 0; j < currGen[i].length; j++) {
+            if (currGen[i][j]) {
+                rect(j * rectSize, i * rectSize, rectSize, rectSize);
+            }
+        }
+    }
 }
 
 function drawGUI() {
