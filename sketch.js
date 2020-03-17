@@ -12,8 +12,8 @@ function setup()
     population = 0;
     simSpeed = 10;
     rectSize = 10;
-    currGen = new initArray();
-    nextGen = new initArray();
+    currGen = initArray();
+    nextGen = initArray();
 }
 
 function draw()
