@@ -2,6 +2,7 @@ var generation;
 var population;
 var simSpeed;
 var rectSize;
+var paused;
 var currGen;
 var nextGen;
 
@@ -9,9 +10,9 @@ function setup()
 {
     createCanvas(640, 480);
     generation = 0;
-    population = 0;
     simSpeed = 10;
     rectSize = 10;
+    paused = false;
     currGen = initArray();
     nextGen = initArray();
 }
@@ -27,7 +28,8 @@ function draw()
     drawCells();
     drawGUI();
 
-    if ((frameCount % simSpeed) === 0) {
+    if (!paused && (frameCount % simSpeed) === 0)
+    {
         var tmp = currGen;
         currGen = getNextGen();
         nextGen = tmp;
@@ -37,6 +39,8 @@ function draw()
 
 function keyPressed()
 {
+    if (keyCode === 32) // Spacebar
+        paused = !paused;
 }
 
 function initArray() {
