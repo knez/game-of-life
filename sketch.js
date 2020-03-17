@@ -22,6 +22,8 @@ function draw()
     noStroke();
     fill('white');
 
+    population = 0; // Reset population
+
     drawCells();
     drawGUI();
 
@@ -49,6 +51,7 @@ function drawCells() {
     for (var i = 0; i < currGen.length; i++) {
         for (var j = 0; j < currGen[i].length; j++) {
             if (currGen[i][j]) {
+                population++;
                 rect(j * rectSize, i * rectSize, rectSize, rectSize);
             }
         }
