@@ -15,6 +15,7 @@ function setup()
     paused = false;
     currGen = initArray();
     nextGen = initArray();
+	loadSeed(GLIDER, 0, 0);
 }
 
 function draw()
@@ -51,6 +52,20 @@ function initArray() {
     return arr;
 }
 
+function loadSeed(pattern, row, col) {
+    for (var i = 0; i < pattern.length; i++) {
+        for (var j = 0; j < pattern[i].length; j++) {
+            currGen[row + i][col + j] = pattern[i][j];
+        }
+    }
+}
+
+function drawGUI() {
+    textSize(16);
+    text('Generation: ' + generation, 10,  height - 15);
+    text('Population: ' + population, 150, height - 15);
+}
+
 function drawCells() {
     for (var i = 0; i < currGen.length; i++) {
         for (var j = 0; j < currGen[i].length; j++) {
@@ -60,12 +75,6 @@ function drawCells() {
             }
         }
     }
-}
-
-function drawGUI() {
-    textSize(16);
-    text('Generation: ' + generation, 10, height - 15);
-    text('Population: ' + population, 150, height - 15);
 }
 
 function countNeighbours(row, col) {
