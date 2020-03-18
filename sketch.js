@@ -15,7 +15,7 @@ function setup()
     paused = false;
     currGen = initArray();
     nextGen = initArray();
-	loadSeed(GLIDER, 32, 24);
+	loadSeed(QUEEN_BEE, 20, 28);
 }
 
 function draw()
