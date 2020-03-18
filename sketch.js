@@ -20,9 +20,9 @@ function setup()
 
 function draw()
 {
-    background(0);
+    background(255);
     noStroke();
-    fill('white');
+    fill(0);
 
     population = 0; // Reset population
 
