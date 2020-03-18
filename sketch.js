@@ -15,7 +15,7 @@ function setup()
     paused = false;
     currGen = initArray();
     nextGen = initArray();
-	loadSeed(GLIDER, 0, 0);
+	loadSeed(GLIDER, 32, 24);
 }
 
 function draw()
@@ -78,15 +78,13 @@ function drawCells() {
 }
 
 function countNeighbours(row, col) {
-    row = row - 1;
-    col = col - 1;
+    row--; col--;
     var count = 0;
     for (var i = 0; i <= 2; i++) {
         for (var j = 0; j <= 2; j++) {
-            if ((currGen[row + i] !== undefined) &&
-                 currGen[row + i][col + j] !== undefined) {
-                count += currGen[row + i][col + j];
-            }
+            var r = (row + i + currGen.length) % currGen.length;
+            var c = (col + j + currGen[0].length) % currGen[0].length;
+            count += currGen[r][c];
         }
     }
     return count;
