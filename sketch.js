@@ -10,7 +10,7 @@ function setup()
 {
     createCanvas(640, 480);
     generation = 0;
-    simSpeed = 10;
+    simSpeed = 5;
     rectSize = 10;
     paused = false;
     currGen = initArray();
