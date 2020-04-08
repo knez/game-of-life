@@ -5,6 +5,7 @@ var rectSize;
 var paused;
 var currGen;
 var nextGen;
+var selected;
 
 function setup()
 {
@@ -59,6 +60,7 @@ function loadSeed(p, row, col) {
         var rand = Math.random() * keys.length << 0;
         p = keys[rand];
     }
+    selected = p;
     var pattern = patterns[p];
     for (var i = 0; i < pattern.length; i++) {
         for (var j = 0; j < pattern[i].length; j++) {
@@ -71,6 +73,7 @@ function drawGUI() {
     textSize(16);
     text('Generation: ' + generation, 10,  height - 15);
     text('Population: ' + population, 150, height - 15);
+    text(selected, 280, height - 15);
 }
 
 function drawCells() {
