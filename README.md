@@ -2,4 +2,4 @@
 
 Example queen bee simulation
 
-![](demo.gif)
+<img src="demo.gif" width="500">
