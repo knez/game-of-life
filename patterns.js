@@ -1,22 +1,24 @@
-var GLIDER = [
+var patterns = {};
+
+patterns['GLIDER'] = [
     [0, 1, 0],
     [0, 0, 1],
     [1, 1, 1]
 ];
 
-var R_PENTOMINO = [
+patterns['R_PENTOMINO'] = [
     [0, 1, 1],
     [1, 1, 0],
     [0, 1, 0]
 ];
 
-var DIEHARD = [
+patterns['DIEHARD'] = [
     [0, 0, 0, 0, 0, 0, 1, 0],
     [1, 1, 0, 0, 0, 0, 0, 0],
     [0, 1, 0, 0, 0, 1, 1, 1]
 ];
 
-var QUEEN_BEE = [
+patterns['QUEEN_BEE'] = [
     [1, 0, 0, 0, 0],
     [1, 0, 1, 0, 0],
     [0, 1, 0, 1, 0],
@@ -26,7 +28,7 @@ var QUEEN_BEE = [
     [1, 0, 0, 0, 0]
 ];
 
-var PULSAR = [
+patterns['PULSAR'] = [
     [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],

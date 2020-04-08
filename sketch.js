@@ -15,7 +15,8 @@ function setup()
     paused = false;
     currGen = initArray();
     nextGen = initArray();
-    loadSeed(QUEEN_BEE, 20, 28);
+    //loadSeed('QUEEN_BEE', 20, 28);
+    loadSeed('RANDOM', 20, 28);
 }
 
 function draw()
@@ -52,7 +53,13 @@ function initArray() {
     return arr;
 }
 
-function loadSeed(pattern, row, col) {
+function loadSeed(p, row, col) {
+    if (p === 'RANDOM') {
+        var keys = Object.keys(patterns);
+        var rand = Math.random() * keys.length << 0;
+        p = keys[rand];
+    }
+    var pattern = patterns[p];
     for (var i = 0; i < pattern.length; i++) {
         for (var j = 0; j < pattern[i].length; j++) {
             currGen[row + i][col + j] = pattern[i][j];
